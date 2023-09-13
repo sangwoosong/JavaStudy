@@ -69,6 +69,9 @@
  *   	정수
  *   	int a,b,c,d
  *   	논리
+ *   	boolean a,b,c,d
+ *   	문자
+ *   	char a,b,c,d
  *   	
  *   3) 변수 > 반드시 사용전에 초기화
  *   	int a=0;
