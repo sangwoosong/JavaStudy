@@ -39,7 +39,7 @@ public class 산술연산자 {
 		 * 		큰 데이터형 > 작은 데이터형
 		 * 
 		 *				----> 자동 형변환
-		 * 	byte < char <int < long < float < double
+		 * 	byte < char < int < long < float < double
 		 * 				<---- 강제 형변환
 		 * 
 		 * 자동 형변환
