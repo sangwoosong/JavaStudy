@@ -20,13 +20,31 @@
  * 				}
  * 			}
  * 		}
+ * 
+ * 		중첩 for => 2차 for
+ * 
+ * 		for(초기값;조건식;증가식)
+ * 		{
+ * 			for (초기값;조건식;증가식)
+ * 			{		  ----->핵심
+ * 			}
+ * 		}
  */
 public class 제어문_반복문2 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//for(int i=1;i<=100;i+=2) 홀수
-		//for(int i=2;i<=100;i+=2) 짝수       //꼭 i++만 쓰는건 아님 / 2씩 증가시 i+=2
+		//for(int i=2;i<=100;i+=2) 짝수       //꼭 i++만 쓰는건 아님 / 2씩 증가시 i+=2'
+		
+		for(int i=1;i<=4;i++) //줄 수
+		{
+			for(int j=1;j<=5-1;j++) // 실제 출력물
+			{
+				System.out.print("★");
+			}
+		System.out.println();
+		}
 		
 
 	}
