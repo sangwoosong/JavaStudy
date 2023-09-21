@@ -56,6 +56,7 @@ public class 제어문_반복문5 {
 			{
 				System.out.print(c++);
 			}
+			
 			System.out.println();
 		}
 	}

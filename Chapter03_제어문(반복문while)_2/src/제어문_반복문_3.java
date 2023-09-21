@@ -1,4 +1,4 @@
-/*
+	/*
  * 		변수 => 데이터형 , 식별자 (암기)
  * 			=> 한개의 데이터를 저장하는 메모리 공간
  * 				(저장된 영역은 변경해서 다시 저장이 가능)
@@ -88,24 +88,48 @@
  *  						case 값:
  * 								처리문장
  * 								break;
- *  						case 값:
- * 								처리문장
- * 								break;
  * 							default;
- * 							   =>처리문장 후 종료
+ * 							   =>처리문장 => 필요시에 사용
  * 				3) 반복문**
+ * 					for
  * 						 1		2    4
- * 					for(초기값;조건식;증감식)
+ * 					for(초기값;조건식;증가식)
  * 						{
  * 							반복수행문장 3
  * 						}
  * 						1-2-3-4
  * 						  2-3-4
+ * 						-------false면 종료
+ * 
+ * 					while
+ * 					초기값 -----------1
+ * 					while(조건문)-----2
+ * 					{
+ * 						반복수행문장---3
+ * 						증가식--------4	=> 	2번으로 이동 (false면 종료)
+ * 					}
  */
 public class 제어문_반복문_3 {
 
+	/*
+	 *  AAAAA
+	 *  BBBBB
+	 *  CCCCC
+	 *  DDDDD
+	 *  EEEEE
+	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		char c='A';
+		for(int i=1;i<=5;i++)
+		{
+			for(int j=1;j<=5;j++)
+			{
+				System.out.print(c);
+			}
+			c++;
+			System.out.println();
+		}
 
 	}
 

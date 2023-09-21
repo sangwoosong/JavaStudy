@@ -1,5 +1,5 @@
 /*
- * 18. 다음 결과를 출력하는 프로그램
+ * 17. 다음 결과를 출력하는 프로그램
  * AAAAA
  * BBBBB
  * CCCCC
@@ -13,7 +13,6 @@ public class 문제_06_반복문_17 {
 		char c='A';
 		for(int i=1;i<=5;i++)
 		{
-			c='A';
 			for(int j=1;j<=5;j++)
 			{
 				System.out.print(c);

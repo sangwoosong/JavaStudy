@@ -75,6 +75,7 @@ public class 제어문_반복문1 {
 		{
 			System.out.print((char)1);
 		}
+		
 
 	}
 }
