@@ -30,9 +30,15 @@
 		 		  40 50
 		 -------------- 4round
 		 10 20 30 40 50
-		 			 --> 
-		       
+		 			 --> arr.length-1
+		 			 
+		 i		j => i+j=4	=>	j=4-i
+		 0		4
+		 1		3
+		 2		2
+		 3		1     
  */
+import java.lang.reflect.Array;
 import java.util.*;
 public class 배열_5 {
 
@@ -50,16 +56,51 @@ public class 배열_5 {
 		for(int i=0;i<arr.length-1;i++)
 		{
 			for(int j=i+1;j<arr.length;j++)
-			{
+			{	
 				if(arr[i]>arr[j]);
 				{
 					int temp=arr[i]; //임시변수
-				arr[i]=arr[j];
-				arr[j]=temp;
+					arr[i]=arr[j];
+					arr[j]=temp;
 				}
 			}
 		}
 		System.out.println("=== 정렬 후(ASC) ===");
+		System.out.println(Arrays.toString(arr));
+		/*
+		 * 		int a=10;
+		 * 		int b=20;
+		 * 
+		 * 		=> a=20, b=10
+		 * 
+		 * 		a=b;
+		 * 			-10 => a=10
+		 * 
+		 * 		b=a;
+		 * 			-10 => b=10
+		 * 
+		 * 		int temp=a; temp=10
+		 * 		a=b; => a=20
+		 * 		b=temp => b=10
+		 */
+		for(int i=0;i<arr.length-1;i++)
+		{
+			for(int j=i+1;j<arr.length;j++)
+			{
+				if(arr[i]<arr[j])
+				{
+					int temp=arr[i]; // 임시변수
+					arr[i]=arr[j];
+					arr[j]=temp;
+					
+				}
+			}
+		}
+		System.out.println("=== 정렬 후(DESC) ===");
+		System.out.println(Arrays.toString(arr));
+		
+		System.out.println("=== API ===");
+		Arrays.sort(arr);
 		System.out.println(Arrays.toString(arr));
 	}
 
