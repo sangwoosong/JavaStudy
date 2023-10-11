@@ -30,7 +30,7 @@ class MusicData{
 			while((i=fr.read())!=-1)
 			{
 				// -1 파일의 끝 => EOF
-				data+=(char) i;
+				data+=(char)	i;
 			}
 			
 			fr.close(); // 파일 닫기
@@ -45,7 +45,7 @@ class MusicData{
 					continue;
 				musics[i].rank=ss[0];
 				musics[i].title=ss[1];
-				musics[i].singer=ss[2];
+				musics[i].singer=ss[2];	
 				musics[i].album=ss[3];
 				musics[i].key=ss[4];
 				i++;
