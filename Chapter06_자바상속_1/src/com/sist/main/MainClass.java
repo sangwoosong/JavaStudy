@@ -129,7 +129,9 @@ package com.sist.main;
 								  	int a,b~z => 26번
 								  	int[] alpha => 이게 더 편함
 										- 한개의 이름으로 제어
-										- 
+										- 다른 데이터형 => 클래스
+										- 메소드 (명령문)
+										- 클래스 => 상속
  */ 
 class Super
 {

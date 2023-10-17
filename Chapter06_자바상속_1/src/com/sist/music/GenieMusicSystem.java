@@ -49,7 +49,7 @@ public class GenieMusicSystem {
 				 					
 				 		에러(해결 불가) / 예외처리 (해결 가능)
 		 */
-		try
+		try	
 		{
 //			Date date=new Date(); // 라이브러리 충돌로 오류시 
 								  // java.util.Date date=new Date() => 앞에 라이브러리 명 or
