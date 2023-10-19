@@ -32,7 +32,7 @@ public class GenieMusicSystem {
 				초기화 블록
 				 - 인스턴스 블록 : {} => 인스턴스 변수, static변수 사용
 				 - 정적 블록 : (static) static{} => static변수만 초기화가 가능
-				 - 자동 인식 (호출하는 것이 아님)
+				   ---------------------------> 자동 인식 (호출하는 것이 아님)
 				 - 상속의 예외 조건
 				 	ㄴ try~catch -프로그램의 비정상 종료 방지
 				 				 - 에러를 사전에 방지
@@ -48,6 +48,7 @@ public class GenieMusicSystem {
 				 					ㄴ메모리 부족 = X
 				 					
 				 		에러(해결 불가) / 예외처리 (해결 가능)
+				 		10/0
 		 */
 		try	
 		{
@@ -58,8 +59,9 @@ public class GenieMusicSystem {
 			// HTML을 저장하는 공간, HTML을 읽어서 데이터 추출
 			// 데이터 저장은 HTML, JSON, XML => 데이터 추출 방식이 다름
 			/*
-					HTML = tag(<> , </> , <a/>) + attribute => Markup Language
+					HTML = tag(<> , </> , <a/>) + attribute => Markup lang
 							<a class="aaa"></a>
+							--			   ----
 						
 						태그 읽는 방법
 						Element => Tag
@@ -156,13 +158,16 @@ public class GenieMusicSystem {
 	{
 		return musics[mno-1];
 	}
-	public static void main(String[] args) {
-		Scanner scan=new Scanner(System.in);
-		System.out.print("가수명 입력 : ");
-		String singer=scan.next();
-		GenieMusicSystem gm=new GenieMusicSystem();
-		Music[] music=gm.musicSingerFindData(singer);
-		System.out.println("검색결과 : "+music.length+"건");
-		
-	}
+//	public static void main(String[] args) {
+//		Scanner scan=new Scanner(System.in);
+//		System.out.print("가수명 입력 : ");
+//		String singer=scan.next();
+//		GenieMusicSystem gm=new GenieMusicSystem();
+//		Music[] music=gm.musicSingerFindData(singer);
+//		System.out.println("검색결과 : "+music.length+"건");
+//		for(Music m:music)
+//		{
+//			  System.out.println(m.getMno()+"."+m.getTitle());
+//		}
+//	}
 }

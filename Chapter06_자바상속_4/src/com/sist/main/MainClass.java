@@ -71,13 +71,18 @@ package com.sist.main;
 				상위클래스 = 하위클래스
 				--------  --------
 					|		 |
-				   변수		메소드	=> 메소드는 상위 클래스에 있는 것만
+				   변수		메소드	=> 메소드는 상위 클래스에 있는 것만 가능
  */
 class A
 {
 	 int a=10,b=20;
 	void aaa() {System.out.println("A=aaa() Call...");}
 	void bbb() {System.out.println("A=bbb() Call...");}
+	
+	/*
+	 *  void aaa() {System.out.println("B:aaa() Call...");}
+	 *  void bbb() {System.out.println("B:bbb() Call...");}
+	 */
 }
 class B extends A
 {
