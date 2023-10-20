@@ -103,7 +103,7 @@ class B extends A
 }
 public class MainClass_1  extends JFrame{
 	  
-	   JButton b1,b2;
+	   JButton b1,b2; // null
 	   
 	   public MainClass_1()
 	   {
