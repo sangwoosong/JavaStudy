@@ -13,10 +13,10 @@ package com.sist.exception;
 					=> 상속을 내려서 구현 후에 사용 (오버라이딩)
 					=> 관려된 클래스를 한개의 객체명으로 관리
 		- 추상클래스 : 단일상속, 멤버변수, 생성자, 구현된 메소드 , 구현이 안된 메소드
-		- 인터페이스 : 다중상속, 상수만 사용이 가능, 구현이 안된 메소드
+		- 인터페이스 : 다중상속, 상수만 사용이 가능, 구현이 안된 메소드 중심
 						=> 구현된 메소드 : default / static
 		-----------------
-						
+						=> 상속
 						class ==== class
 								|
 							extends
@@ -28,6 +28,7 @@ package com.sist.exception;
 							implements
 				---------------------------------
 				class A
+				class C
 				class B extends A,C => 오류
 				
 				class A
