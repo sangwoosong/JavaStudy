@@ -21,5 +21,4 @@ public class MainClass_2 {
 				초 : s => ss
 		 */
 	}
-
 }
