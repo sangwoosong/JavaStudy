@@ -38,7 +38,7 @@ public class ClientMainForm extends JFrame implements ActionListener {
 	{
 		setLayout(null); // 직접 배치
 		logo.setBounds(15, 15, 100, 150);
-		logo.setIcon(new ImageIcon(ImageChange.getImage(new ImageIcon("c:\\javaDev\\logo.jpg"), 100, 100)));
+		logo.setIcon(new ImageIcon(ImageChange.getImage(new ImageIcon("c:\\javaDev\\logo.png"), 100, 100)));
 		add(logo);
 		mp.setBounds(15, 200, 100, 250); // 메뉴의 버튼 크기
 		add(mp);
