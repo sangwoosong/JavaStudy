@@ -1,8 +1,5 @@
 package com.sist.client;
 
-import java.awt.Color;
-import java.awt.Font;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -19,8 +16,7 @@ import java.util.Date;
 public class BoardInsertPanel extends JPanel
 implements ActionListener
 {
-
-	ControlPanel cp;
+	 ControlPanel cp;
 	 JLabel la;
 	 JLabel la1,la2,la3,la4;
 	 JTextField tf1,tf2,tf3;
@@ -29,11 +25,11 @@ implements ActionListener
      public BoardInsertPanel(ControlPanel cp)
      {
     	 this.cp=cp;
-    	 la=new JLabel("자유게시판");
+    	 la=new JLabel("자유 게시판");
     	 setLayout(null); // 사용자 정의 배치 
      	 la.setHorizontalAlignment(JLabel.CENTER);
-     	 la.setFont(new Font("맑은 고딕",Font.BOLD,35));
-     	 la.setBounds(100, 15, 700, 50);
+     	 la.setFont(new Font("굴림체",Font.BOLD,35));
+     	 la.setBounds(10, 15, 710, 50);
      	 add(la);
      	 
      	 la1=new JLabel("이름");
@@ -61,22 +57,25 @@ implements ActionListener
     	 add(la2);add(tf2);
     	 
     	 la3.setBounds(10, 155, 70, 30);
-    	 js.setBounds(85, 155, 850, 550);
+    	 js.setBounds(85, 155, 850, 450);
     	 add(la3);add(js);
     	 
-    	 la4.setBounds(10, 715, 70, 30);
-     	 tf3.setBounds(85, 715, 150, 30);
+    	 la4.setBounds(10, 615, 70, 30);
+     	 tf3.setBounds(85, 615, 150, 30);
      	 add(la4);add(tf3);
      	 
      	 JPanel p=new JPanel();
+     	 p.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 10));
+     	 b1.setPreferredSize(new Dimension(120,30));
+     	 b2.setPreferredSize(new Dimension(120,30));
      	 p.add(b1);p.add(b2);
-     	 p.setBounds(10, 725, 625, 35);
+     	 p.setBounds(10, 555, 625, 40);
      	 add(p);
      	 
      	 b1.addActionListener(this);
      	 b2.addActionListener(this);
      }
-	 @Override
+	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getSource()==b2)
@@ -91,18 +90,21 @@ implements ActionListener
 				tf1.requestFocus();
 				return;
 			}
+			
 			String subject=tf2.getText();
 			if(subject.trim().length()<1)
 			{
 				tf2.requestFocus();
 				return;
 			}
+			
 			String content=ta.getText();
 			if(content.trim().length()<1)
 			{
 				ta.requestFocus();
 				return;
 			}
+			
 			String pwd=tf3.getText();
 			if(pwd.trim().length()<1)
 			{
@@ -121,7 +123,7 @@ implements ActionListener
 			vo.setRegdate(new Date());
 			bm.boardInsert(vo);
 			
-			// 화면 이동
+			// 화면 이동 
 			cp.card.show(cp, "board");
 			cp.blp.boardList();
 		}

@@ -42,19 +42,20 @@ public class BoardManager {
 	   int j=0;
 	   int rowSize=10;//화면에 출력하는 갯수 
 	   int pagecnt=(page*rowSize)-rowSize;
-	   /*
-	    *   1page => 0~9  skip
-	    *   2page => 10~19
-	    *   3page => 20~29...
-	    *   
-	    */
-	   // 오라클 => 인라인뷰 
-	   // MySQL => LIMIT 
-	   for(int i=0;i<bList.size();i++)
+	   
+	   
+	   ArrayList<BoardVO> temp=
+			   new ArrayList<BoardVO>();
+	   for(int i=bList.size()-1;i>=0;i--)
+	   {
+		   temp.add(bList.get(i));
+	   }
+	   
+	   for(int i=0;i<temp.size();i++)
 	   {
 		   if(j<10 && i>=pagecnt)
 		   {
-			   BoardVO vo=bList.get(i);
+			   BoardVO vo=temp.get(i);
 			   list.add(vo);
 			   j++; //10개씩만 저장 
 		   }
@@ -97,23 +98,117 @@ public class BoardManager {
 		   }catch(Exception ex) {}
 	   }
    }
-	// 상세보기
-	// 수정하기 ===
-	// 삭제하기 === 동일 코딩 => 파일에 저장
-	// 검색하기
-	// 자동 증가번호 만들기 => 시퀀스
+   // 상세보기 
+   public BoardVO boardDetailData(int no)
+   {
+	   BoardVO vo=new BoardVO();
+	   for(int i=0;i<bList.size();i++)
+	   {
+		   BoardVO bVO=bList.get(i);
+		   if(bVO.getNo()==no)
+		   {
+			   bVO.setHit(bVO.getHit()+1);// 조회수 증가 
+			   vo=bVO;
+			   fileSave();// 파일과 ArrayList가 동일 
+			   break;
+			   // 다음주부터 => 파일 / 오라클 
+			   // UPDATE board SET hit=hit+1 WHERE no=1;
+			   // 오라클 (웹 핵심) => SQL 
+			   // SQL (CRUD => SELECT , INSERT , UPDATE, DELETE)
+		   }
+	   }
+	   return vo;
+   }
+   // 수정하기 ===
+   public BoardVO boardUpdateData(int no)
+   {
+	   BoardVO vo=new BoardVO();
+	   // SELECT * FROM board WHERE no=1
+	   for(BoardVO bVO:bList)
+	   {
+		   if(bVO.getNo()==no)
+		   {
+			   vo=bVO;
+			   break;
+		   }
+	   }
+	   return vo;
+   }
+   public String boardUpdate(BoardVO vo)
+   {                       // 클라이언트가 전송 
+	   String result="";//YES/NO
+	   for(int i=0;i<bList.size();i++)
+	   {
+		   // remove(index) , set(index)
+		   BoardVO pVO=bList.get(i);
+		   // 서버에 저장 
+		   if(pVO.getNo()==vo.getNo())
+		   {
+			   if(pVO.getPwd().equals(vo.getPwd()))
+			   {
+				   // 수정 (비밀번호가 일치)
+				   result="YES";
+				   //bList.set(i, vo);// 메모리 => 수정
+				   pVO.setContent(vo.getContent());
+				   pVO.setName(vo.getName());
+				   pVO.setSubject(vo.getSubject());
+				   
+				   fileSave();//파일 => 수정된 내용을 파일에 저장
+				   // 메모리 저장 == 파일에 저장
+			   }
+			   else
+			   {
+				   // 비밀번호가 틀린 상태
+				   result="NO";
+			   }
+			   break;
+		   }
+	   }
+	   return result;
+   }
+   // 삭제하기 ===  동일 코딩 ==> 파일에 저장 
+   // ArrayList 제어 / 파일 제어 => 웹 => Manager
+   // 웹 => 파일 대신 오라클 
+   public String boardDelete(int no,String pwd)
+   {
+	   String result=""; // NO , YES
+	   for(int i=0;i<bList.size();i++)
+	   {
+		   BoardVO vo=bList.get(i);
+		   if(vo.getNo()==no)
+		   {
+			   if(vo.getPwd().equals(pwd))
+			   {
+				   // 삭제 대상 => 비밀번호가 일치
+				   result="YES";
+				   bList.remove(i);
+				   fileSave();
+			   }
+			   else
+			   {
+				   // 비밀번호가 틀린 상태 
+				   result="NO";
+			   }
+			   
+			   break;
+		   }
+	   }
+	   return result;
+   }
+   // 자동 증가번호 만들기 => 스퀀스 
    // SELECT MAX(no)+1 FROM board
-	public int boardSequence()
-	{
-		int max=0;
-		for(BoardVO vo:bList)
-		{
-			if(vo.getNo()>max)
-			{
-				max=vo.getNo();
-			}
-		}
-		return max+1;
-	}
-	// 공통 => 파일 저장
+   public int boardSequence()
+   {
+	   int max=0;
+	   for(BoardVO vo:bList)
+	   {
+		   if(vo.getNo()>max)
+		   {
+			   max=vo.getNo();
+		   }
+	   }
+	   return max+1;
+   }
+   // 공통 => 파일 저장 
+   
 }

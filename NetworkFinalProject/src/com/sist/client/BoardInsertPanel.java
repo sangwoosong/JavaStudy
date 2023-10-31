@@ -16,8 +16,7 @@ import com.sist.vo.BoardVO;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Date;
-public class BoardInsertPanel extends JPanel
-implements ActionListener
+public class BoardInsertPanel extends JPanel implements ActionListener
 {
 
 	ControlPanel cp;
@@ -79,7 +78,7 @@ implements ActionListener
 	 @Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if(e.getSource()==b2)
+		if(e.getSource()==b2) 
 		{
 			cp.card.show(cp, "board");
 		}
